@@ -19,8 +19,17 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
+Real-world recommendation utilizes weights (either stored as numbers or data points) and existing user data to determine a song recommendation. This is done by running user preferences and the aspects of a given song into an algorithm for a recommendation score.
+
+
 Some prompts to answer:
 
+
+score = (
+    2.0 * (song.genre == user.favorite_genre) +
+    1.5 * (song.mood == user.favorite_mood) +
+    1.0 * (1 - abs(song.energy - user.target_energy))
+)
 - What features does each `Song` use in your system
   - For example: genre, mood, energy, tempo
 - What information does your `UserProfile` store
@@ -120,3 +129,10 @@ Write 1 to 2 paragraphs here about what you learned:
 
 
 
+## Probable Algorithm
+
+score = (
+    2.0 * (song.genre == user.favorite_genre) +
+    1.5 * (song.mood == user.favorite_mood) +
+    1.0 * (1 - abs(song.energy - user.target_energy))
+)
